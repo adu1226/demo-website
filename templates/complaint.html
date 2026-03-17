@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>User Dashboard</h2>
+<a href="/complaint">Add Complaint</a>
+<a href="/logout">Logout</a>
+
+<h3>Your Complaints:</h3>
+<ul>
+{% for c in data %}
+<li>{{c[2]}}</li>
+{% endfor %}
+</ul>
+</body>
+</html>

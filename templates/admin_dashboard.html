@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<body>
+<h2>Admin Dashboard</h2>
+<a href="/logout">Logout</a>
+<ul>
+{% for c in data %}
+<li>{{c[1]}} - {{c[2]}}</li>
+{% endfor %}
+</ul>
+</body>
+</html>
