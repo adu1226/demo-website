@@ -1,13 +1,380 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nagpur Mincipal Corporation Smart Civic Portal</title>
+
+<style>
+/* GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BACKGROUND */
+body {
+    background: url("https://gumlet.assettype.com/swarajya/2022-07/d333af8d-0353-4345-8db6-2f75d00764c2/nagpur_metro.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* DARK OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: -1;
+}
+
+/* NEWS TICKER */
+.ticker {
+    background: #ff6b00;
+    color: white;
+    padding: 8px;
+    overflow: hidden;
+    font-size: 14px;
+}
+
+.ticker-text {
+    white-space: nowrap;
+    display: inline-block;
+    padding-left: 100%;
+    animation: ticker 60s linear infinite;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0)
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 15px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar .logo img {
+    width: 50px;
+    margin-right: 12px;
+    border-radius: 8px;
+}
+
+/* MAIN LAYOUT */
+.main {
+    flex: 1;
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    gap: 20px;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 250px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    height: fit-content;
+}
+
+.sidebar h3 {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 5px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.sidebar ul li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+}
+
+.sidebar ul li:hover {
+    color: #ff9900;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* LOGIN BOX */
+.login-box {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(15px);
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-box img {
+    width: 80px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+.login-box h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 25px;
+    color: #ddd;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 14px;
+}
+
+input::placeholder {
+    color: #eee;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(45deg, #ff6b00, #ff9900);
+    border: none;
+    color: white;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+/* SWITCH */
+.switch {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.switch a {
+    color: #ffd27f;
+    cursor: pointer;
+}
+
+/* SERVICES CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    transition: 0.3s ease;
+    backdrop-filter: blur(8px);
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* FOOTER */
+.footer {
+    margin-top: 30px;
+    text-align: center;
+    color: #ccc;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .main{
+        flex-direction: column;
+    }
+    .sidebar{
+        width:100%;
+        margin-bottom:20px;
+    }
+    .login-box{
+        margin:auto;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<h1>Welcome to Demo Website</h1>
+<!-- NEWS TICKER -->
+<div class="ticker">
+    <div class="ticker-text">
+        Breaking: NMC improving smart roads • Clean Nagpur campaign launched • Digital complaint system started
+    </div>
+</div>
 
-<a href="/login">Login</a>
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">
+        <img src="https://thelivenagpur.com/wp-content/uploads/2019/01/nmc_logo-1170x780.jpg">
+        Nagpur Municipal Corporation Smart Civic Portal
+    </div>
+</div>
+
+<!-- MAIN -->
+<div class="main">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h3>Services</h3>
+        <ul>
+            <li>Road Maintenance</li>
+            <li>Garbage Collection</li>
+            <li>Water Supply</li>
+            <li>Street Lighting</li>
+            <li>Drainage Issues</li>
+            <li>Illegal Construction</li>
+        </ul>
+
+        <h3>Departments</h3>
+        <ul>
+            <li>Public Health Department</li>
+            <li>Water Supply Department</li>
+            <li>Sanitation Department</li>
+            <li>Road & Infrastructure</li>
+            <li>Fire Services</li>
+            <li>Town Planning</li>
+            <li>Property Tax Department</li>
+            <li>Street Light Department</li>
+        </ul>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <!-- LOGIN BOX -->
+        <div class="login-box">
+            <img src="https://thelivenagpur.com/wp-content/uploads/2019/01/nmc_logo-1170x780.jpg" alt="NMC Logo">
+            <h2 id="form-title">NMC Complaint Portal</h2>
+            <div class="subtitle">Report civic issues to Nagpur Municipal Corporation</div>
+
+            <form id="loginForm" method="POST" action="/login">
+                <input type="email" name="email" placeholder="Enter Gmail Address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+
+            <form id="registerForm" method="POST" action="/register" style="display:none">
+                <input type="text" name="name" placeholder="Full Name" required>
+                <input type="email" name="email" placeholder="Enter Gmail Address" required>
+                <input type="password" name="password" placeholder="Create Password" required>
+                <button type="submit">Register</button>
+            </form>
+
+            <div class="switch">
+                <span id="switchText">Don't have an account?</span>
+                <a onclick="toggleForm()">Register</a>
+            </div>
+        </div>
+
+        <!-- SERVICES CARDS -->
+        <div class="cards">
+            <div class="card">
+                <h3>Road Issues</h3>
+                <p>Report potholes and damaged roads.</p>
+            </div>
+            <div class="card">
+                <h3>Garbage Complaints</h3>
+                <p>Report missed garbage collection.</p>
+            </div>
+            <div class="card">
+                <h3>Water Supply</h3>
+                <p>Report leakage or low supply.</p>
+            </div>
+            <div class="card">
+                <h3>Street Lights</h3>
+                <p>Report broken street lights.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="footer">
+    © Nagpur Municipal Corporation | Smart Civic Portal
+</div>
+
+<script>
+function toggleForm(){
+    let login=document.getElementById("loginForm");
+    let register=document.getElementById("registerForm");
+    let title=document.getElementById("form-title");
+    let text=document.getElementById("switchText");
+
+    if(login.style.display==="none"){
+        login.style.display="block";
+        register.style.display="none";
+        title.innerHTML="NMC Complaint Portal";
+        text.innerHTML="Don't have an account?";
+        document.querySelector(".switch a").innerHTML="Register";
+    }else{
+        login.style.display="none";
+        register.style.display="block";
+        title.innerHTML="Register Complaint Account";
+        text.innerHTML="Already have an account?";
+        document.querySelector(".switch a").innerHTML="Login";
+    }
+}
+</script>
 
 </body>
 </html>
